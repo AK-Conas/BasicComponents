@@ -5,6 +5,7 @@ import CCheckButton from "./CCheckButton";
 import CChooseFile from "./CChooseFile";
 import CDropDown from "./CDropDown";
 import CDateTimePicker from "./CDateTimePicker";
+import Extra from "./Extra";
 import React, { useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
@@ -194,10 +195,15 @@ export default function App() {
       <br></br>
       <br></br>
       <br></br>
-      <br></br> */}
+      <br></br> 
 
       <CDateTimePicker />
 
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br> */}
+      <Extra />
       <br></br>
       <br></br>
       <br></br>

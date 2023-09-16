@@ -15,7 +15,7 @@ const themeMain = createTheme({
 
 //todo check later
 //cTooltipText,
-//add-minWidth,
+//add-minWidth, https://mui.com/base-ui/react-textarea-autosize/
 //close icon is too close for search
 //In case of error in dropdown and input, handle space of the below button
 function CInput({ cHintText, cDisabled, cErrorMsg, cType, cRows }) {

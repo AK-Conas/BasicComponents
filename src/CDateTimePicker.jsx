@@ -3,7 +3,8 @@ import React, { useState } from "react";
 const primary = "#042560";
 const secondary = "#3cb043";
 
-//todo Do we need to handle customized version here. as font is also different
+//todo Do we need to handle customized version here.
+// as font is also different
 function CDateTimePicker() {
   const [selectedDate, setSelectedDate] = useState(new Date());
 

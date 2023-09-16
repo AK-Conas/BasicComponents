@@ -1,4 +1,3 @@
-import "./styles.css";
 import CInput from "./CInput";
 import CButton from "./CButton";
 import CCheckButton from "./CCheckButton";
@@ -6,6 +5,7 @@ import CChooseFile from "./CChooseFile";
 import CDropDown from "./CDropDown";
 import CDateTimePicker from "./CDateTimePicker";
 import Extra from "./Extra";
+import CImportant from "./CImportant";
 import React, { useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
@@ -42,7 +42,14 @@ export default function App() {
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
-      {/* <CButton
+
+      <CImportant />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      {/* 
+      <CButton
         cText="This is Conas Custom Default Button with text only"
         cTooltipText="Default Button"
         cOnClick={handleClick}
@@ -53,7 +60,7 @@ export default function App() {
       <br></br>
       <CButton
         cText="This is Conas Custom Disabled Button with text only"
-        c_disabled={true}
+        cDisabled={true}
         cTooltipText="Disabled Button"
         cOnClick={handleClick}
       />
@@ -83,7 +90,7 @@ export default function App() {
       <br></br>
       <CButton
         cSrc={<EditIcon />}
-        c_disabled={true}
+        cDisabled={true}
         cTooltipText="Image Disabled Button"
         cOnClick={handleClick}
       />
@@ -92,7 +99,7 @@ export default function App() {
       <br></br>
       <br></br>
       <br></br>
-
+     
       <CInput cHintText="This is Default Input Text" />
 
       <br></br>

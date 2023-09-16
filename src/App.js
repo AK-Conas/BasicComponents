@@ -2,6 +2,9 @@ import "./styles.css";
 import CInput from "./CInput";
 import CButton from "./CButton";
 import CCheckButton from "./CCheckButton";
+import CChooseFile from "./CChooseFile";
+import CDropDown from "./CDropDown";
+import CDateTimePicker from "./CDateTimePicker";
 import React, { useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
@@ -15,17 +18,30 @@ export default function App() {
   };
 
   // State variable to track the error state of the TextField
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(0);
 
+  const errorData = {
+    0: "",
+    1: "This is error message 1",
+    2: "This is error message 2",
+  };
   // Function to toggle the error state
   const handleToggle = () => {
-    setError(!error);
+    setError(error === 0 ? 1 : error === 1 ? 2 : 0);
+  };
+
+  //DropDownData
+  const data = {
+    10: "John",
+    20: 30,
+    30: "john@example.com",
+    40: "New York",
   };
 
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
-      <CButton
+      {/* <CButton
         cText="This is Conas Custom Default Button with text only"
         cTooltipText="Default Button"
         cOnClick={handleClick}
@@ -92,8 +108,7 @@ export default function App() {
 
       <CInput
         cHintText="This is Error Input Text"
-        cError={error}
-        cErrorMsg="This is an error message"
+        cErrorMsg={errorData[error]}
       />
       <br></br>
       <br></br>
@@ -101,7 +116,7 @@ export default function App() {
         Toggle Error
       </Button>
 
-      <br></br>
+     <br></br>
       <br></br>
       <br></br>
       <br></br>
@@ -155,10 +170,38 @@ export default function App() {
       <br></br>
       <br></br>
       <br></br>
+      <br></br> */}
+
+      {/* <CChooseFile /> 
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      */}
+
+      {/* <CDropDown
+        cHintText="DropDown Heading"
+        cData={data}
+        cErrorMsg={errorData[error]}
+      />
+
       <br></br>
 
-      <CChooseFile/>
-      <br></br><br></br><br></br><br></br>
+      <Button variant="contained" onClick={handleToggle}>
+        Toggle Error
+      </Button>
+
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br> */}
+
+      <CDateTimePicker />
+
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   );
 }

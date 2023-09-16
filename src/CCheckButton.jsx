@@ -8,20 +8,20 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const themeMain = createTheme({
   palette: {
     primary: {
-      main: "#042560"
+      main: "#042560",
     },
     secondary: {
-      main: "#3cb043"
-    }
-  }
+      main: "#3cb043",
+    },
+  },
 });
-
+//todo create group for both
 const CheckButton = ({
   cLabel,
   isChecked,
   handleChange,
   isDisabled,
-  isMultiple
+  isMultiple,
 }) => {
   if (isMultiple) {
     return (

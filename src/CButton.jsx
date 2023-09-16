@@ -1,36 +1,37 @@
 import React from "react";
+import IconButton from "@mui/material/IconButton";
+import Fab from "@mui/material/Fab";
 import Button from "@mui/material/Button";
-import { styled } from "@mui/system";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const CustomButton = styled(Button)(({ theme, isDisabled }) => ({
-  backgroundColor: isDisabled ? "#E9E9E9" : "#3cb043",
-  color: "#FFFFFF",
-  fontWeight: isDisabled ? "inherit" : "bold",
-  padding: "1em",
-  borderRadius: "0.5em",
-  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-  "&:hover": {
-    backgroundColor: "#13A538"
-  }
-}));
-
-const SimpleButton = styled(Button)(({ theme, isDisabled }) => ({
-  fontWeight: isDisabled ? "inherit" : "bold",
-  padding: "1em",
-  borderRadius: "0.5em"
-}));
-
-//todo check later  cursor:(isDisabled?'not-allowed':'inherit'),     cTooltipText
+import CloseIcon from "@mui/icons-material/Close";
+const themeMain = createTheme({
+  palette: {
+    primary: {
+      main: "#042560",
+    },
+    secondary: {
+      main: "#3cb043",
+    },
+  },
+});
+//todo check later  cursor:(isDisabled?'not-allowed':'inherit')
+//cTooltipText - check how to add tooltip in mui,  href={cLink}
+//{/* Both text and image check later todo. rest button all done */}
 function CButton({
-  children,
   cText,
   cSrc,
   cSrcSimple,
   cTooltipText,
   c_disabled,
-  cOnClick
+  cOnClick,
+  cLink,
 }) {
-  const buttonVariant = c_disabled ? "disabled" : "default"; // You can use a variant to toggle styles
+  const buttonStyle = {
+    fontWeight: "bold",
+    padding: "1em",
+    borderRadius: "0.5em",
+  };
 
   const handleClick = () => {
     // Handle button click here
@@ -42,37 +43,47 @@ function CButton({
 
   if (cSrcSimple !== undefined) {
     return (
-      <SimpleButton
-        variant={buttonVariant}
-        isDisabled={c_disabled}
-        onClick={handleClick}
-      >
-        {cSrcSimple}
-      </SimpleButton>
+      <ThemeProvider theme={themeMain}>
+        <IconButton
+          aria-label={cTooltipText}
+          disabled={c_disabled}
+          onClick={handleClick}
+          color="primary"
+        >
+          {cSrcSimple}
+        </IconButton>
+      </ThemeProvider>
     );
   }
-
   if (cSrc !== undefined) {
     return (
-      <CustomButton
-        variant={buttonVariant}
-        isDisabled={c_disabled}
-        onClick={handleClick}
-      >
-        {cSrc}
-      </CustomButton>
+      <ThemeProvider theme={themeMain}>
+        <Fab
+          aria-label={cTooltipText}
+          disabled={c_disabled}
+          onClick={handleClick}
+          color="primary"
+          variant="contained"
+        >
+          {cSrc}
+        </Fab>
+      </ThemeProvider>
     );
   }
-
   if (cText !== undefined) {
     return (
-      <CustomButton
-        variant={buttonVariant}
-        isDisabled={c_disabled}
-        onClick={handleClick}
-      >
-        {cText}
-      </CustomButton>
+      <ThemeProvider theme={themeMain}>
+        <Button
+          aria-label={cTooltipText}
+          disabled={c_disabled}
+          onClick={handleClick}
+          color="primary"
+          variant="contained"
+          style={buttonStyle}
+        >
+          {cText}
+        </Button>
+      </ThemeProvider>
     );
   }
 }

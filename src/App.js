@@ -95,6 +95,8 @@ export default function App() {
         cError={error}
         cErrorMsg="This is an error message"
       />
+      <br></br>
+      <br></br>
       <Button variant="contained" onClick={handleToggle}>
         Toggle Error
       </Button>
@@ -154,6 +156,9 @@ export default function App() {
       <br></br>
       <br></br>
       <br></br>
+
+      <CChooseFile/>
+      <br></br><br></br><br></br><br></br>
     </div>
   );
 }

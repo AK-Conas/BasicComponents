@@ -17,7 +17,6 @@ const themeMain = createTheme({
 });
 //todo check later  cursor:(isDisabled?'not-allowed':'inherit')
 //cTooltipText - check how to add tooltip in mui,  href={cLink}
-//{/* Both text and image check later todo. rest button all done */}
 function CButton({
   cText,
   cSrc,
@@ -55,6 +54,9 @@ function CButton({
       </ThemeProvider>
     );
   }
+  //  variant="extended"
+  // {cSrc} Hello
+  // todo can use if want both text and icon
   if (cSrc !== undefined) {
     return (
       <ThemeProvider theme={themeMain}>

@@ -1,32 +1,44 @@
 import React, { useState } from "react";
-import { styled } from "@mui/system";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const TextComponent = ({ variant, disabled, label, href, isBackground }) => {
-  const CustomText = styled(Text)(({ theme, variant, children }) => ({
-    color:
-      variant === "header"
-        ? "#green"
-        : variant === "sub-header"
-        ? "#0000FF"
-        : variant === "normal"
-        ? "#FF0000"
-        : "inherit",
-    backgroundColor: isBackground ? "#ffffff" : "inherit",
-    opacity: disabled ? "0.4" : "1.0",
-    fontWeight: variant === "third" ? "bold" : "inherit",
-  }));
+const themeMain = createTheme({
+  palette: {
+    primary: {
+      main: "#042560",
+    },
+    secondary: {
+      main: "#3cb043",
+    },
+  },
+});
 
-  if (variant === "header") {
+const CText = ({ cVariant, cDisabled, cText }) => {
+  let tColor = "inherit";
+  if (cVariant === "header_card") {
+    tColor = "white";
+    cVariant = "h6";
     return (
-      <a href={"https://www.google.com"}>
-        <h1>{label}</h1>
-      </a>
+      <ThemeProvider theme={themeMain}>
+        <Box bgcolor="secondary.main" p={2}>
+          <Typography variant={cVariant} color={tColor}>
+            {cText}
+          </Typography>
+        </Box>
+      </ThemeProvider>
     );
-  } else if (variant === "sub-header") {
-    return <h3>{label}</h3>;
-  } else if (variant === "normal") {
-    return <p>{label}</p>;
+  } else if (cVariant === "title_card") {
+    tColor = "secondary";
+    cVariant = "subtitle1";
   }
+  return (
+    <ThemeProvider theme={themeMain}>
+      <Typography variant={cVariant} color={tColor}>
+        {cText}
+      </Typography>
+    </ThemeProvider>
+  );
 };
 
-export default TextComponent;
+export default CText;

@@ -6,9 +6,13 @@ import CDropDown from "./CDropDown";
 import CDateTimePicker from "./CDateTimePicker";
 import Extra from "./Extra";
 import CImportant from "./CImportant";
+import CText from "./CText";
+import CCard from "./CCard";
+import CViewGroup from "./CViewGroup";
 import React, { useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
+import { Card, CardContent, Typography } from "@mui/material";
 
 import Button from "@mui/material/Button";
 
@@ -39,16 +43,69 @@ export default function App() {
     40: "New York",
   };
 
+  const cardData1 = [
+    {
+      title: "Card Header 1",
+      detail: "Test 1",
+    },
+  ];
+  const cardData2 = [
+    {
+      title: "Card Header 1",
+      detail: "Test 1",
+    },
+    {
+      title: "Card Header 2",
+      detail: "Test 2",
+    },
+    {
+      title: "Card Header 3",
+      detail: "Test 3",
+    },
+  ];
+  const cardData3 = [
+    {
+      title: "Card Header 1",
+      detail: "Test 1",
+      sub: "Sub 1",
+    },
+    {
+      title: "Card Header 2",
+      detail: "Test 2",
+      sub: "Sub 2",
+    },
+    {
+      title: "Card Header 3",
+      detail: "Test 3",
+      sub: "Sub 3",
+    },
+  ];
+
+  const tabData = [
+    {
+      label: "Tab 1",
+      content: "Tab 1 Content",
+    },
+    {
+      label: "Tab 2",
+      content: "Tab 2 Content",
+    },
+    {
+      label: "Tab 3",
+      content: "Tab 3 Content",
+    },
+  ];
+
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
-
+      {/* 
       <CImportant />
       <br></br>
       <br></br>
       <br></br>
       <br></br>
-      {/* 
+      
       <CButton
         cText="This is Conas Custom Default Button with text only"
         cTooltipText="Default Button"
@@ -210,11 +267,60 @@ export default function App() {
       <br></br>
       <br></br>
       <br></br> */}
-      <Extra />
+
+      {/* <CText cVariant="header_card" cText="Hello" />
+      
       <br></br>
       <br></br>
       <br></br>
       <br></br>
+      <CCard c_data={cardData1} c_header="Header is here" />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <CCard c_data={cardData1} />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <CCard c_data={cardData2} />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <CCard c_data={cardData3} />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <CCard c_tabdata={tabData} />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br> */}
+      <CViewGroup>
+        <CButton
+          cText="Submit"
+          cTooltipText="Default Button"
+          cOnClick={handleClick}
+        />
+        <CButton
+          cText="Cancel"
+          cTooltipText="Default Button"
+          cOnClick={handleClick}
+        />
+      </CViewGroup>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
+      {/* <Extra />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br> */}
     </div>
   );
 }

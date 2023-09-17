@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Radio from "@mui/material/Radio";
-
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const themeMain = createTheme({
@@ -15,7 +14,7 @@ const themeMain = createTheme({
     },
   },
 });
-//todo create group for both
+
 const CheckButton = ({
   cLabel,
   isChecked,

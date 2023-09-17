@@ -5,7 +5,6 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import CloseIcon from "@mui/icons-material/Close";
 const themeMain = createTheme({
   palette: {
     primary: {

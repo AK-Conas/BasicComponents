@@ -1,20 +1,18 @@
-import React from 'react';
-import { Box } from '@mui/material';
+import React from "react";
+import { Box } from "@mui/material";
 
-//direction = "vertical"
-const CViewGroup = ({children}) => {
-  return (
-   const childrenWithMargin = React.Children.map(children, (child, index) => {
-    // Apply margin to all children except the last one
-    const childWithMargin = React.cloneElement(child, {
-      style: {
-        ...(child.props.style || {}),
-        marginBottom: index < children.length - 1 ? '16px' : undefined,
-      },
+const VG = ({ children }) => {
+  const childMargin = "2em";
+  const childStyle = {
+    marginRight: childMargin,
+  };
+  const childrenWithMargin = React.Children.map(children, (child, index) => {
+    return React.cloneElement(child, {
+      style: { ...child.props.style, ...childStyle },
     });
+  });
 
-    return childWithMargin;
-  );
+  return <Box>{childrenWithMargin}</Box>;
 };
 
-export default CViewGroup;
+export default VG;

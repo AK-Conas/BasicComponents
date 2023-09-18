@@ -8,11 +8,13 @@ import Extra from "./Extra";
 import CImportant from "./CImportant";
 import CText from "./CText";
 import CCard from "./CCard";
-import CViewGroup from "./CViewGroup";
 import React, { useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
 import { Card, CardContent, Typography } from "@mui/material";
+import CGrid from "./CGrid";
+import CUI from "./structure/CUI";
+import Homepage from "./forhome/Homepage";
 
 import Button from "@mui/material/Button";
 
@@ -299,7 +301,7 @@ export default function App() {
       <br></br>
       <br></br>
       <br></br> */}
-      <CViewGroup>
+      {/* <VG>
         <CButton
           cText="Submit"
           cTooltipText="Default Button"
@@ -310,12 +312,14 @@ export default function App() {
           cTooltipText="Default Button"
           cOnClick={handleClick}
         />
-      </CViewGroup>
+      </VG> */}
       <br></br>
       <br></br>
       <br></br>
       <br></br>
-
+      {/* <CGrid /> */}
+      {/* <CUI /> */}
+      <Homepage />
       {/* <Extra />
       <br></br>
       <br></br>

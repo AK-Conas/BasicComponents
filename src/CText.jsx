@@ -29,7 +29,7 @@ const CText = ({ cVariant, cDisabled, cText }) => {
       </ThemeProvider>
     );
   } else if (cVariant === "title_card") {
-    tColor = "secondary";
+    tColor = "primary";
     cVariant = "subtitle1";
   }
   return (

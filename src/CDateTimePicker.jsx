@@ -11,16 +11,17 @@ function CDateTimePicker() {
   const handleDateChange = (e) => {
     setSelectedDate(new Date(e.target.value));
   };
-
+  const buttonStyle = {
+    fontSize: "1.1em",
+    padding: "1em",
+    fontFamily: "Roboto",
+  };
   return (
     <input
       type="datetime-local"
       value={selectedDate.toISOString().substring(0, 16)}
       onChange={handleDateChange}
-      style={{
-        fontSize: "1.3em",
-        padding: "1em",
-      }}
+      style={buttonStyle}
     />
   );
 }

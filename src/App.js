@@ -14,7 +14,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Card, CardContent, Typography } from "@mui/material";
 import CGrid from "./CGrid";
 import CUI from "./structure/CUI";
-import Homepage from "./forhome/Homepage";
+// import CarouselEffect from "./CarouselEffect";
 
 import Button from "@mui/material/Button";
 
@@ -101,13 +101,16 @@ export default function App() {
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
+      <CGrid />
       {/* 
-      <CImportant />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+      <CarouselEffect />
       
+      <CImportant />*/}
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
       <CButton
         cText="This is Conas Custom Default Button with text only"
         cTooltipText="Default Button"
@@ -158,7 +161,7 @@ export default function App() {
       <br></br>
       <br></br>
       <br></br>
-     
+
       <CInput cHintText="This is Default Input Text" />
 
       <br></br>
@@ -183,7 +186,7 @@ export default function App() {
         Toggle Error
       </Button>
 
-     <br></br>
+      <br></br>
       <br></br>
       <br></br>
       <br></br>
@@ -237,16 +240,15 @@ export default function App() {
       <br></br>
       <br></br>
       <br></br>
-      <br></br> */}
+      <br></br>
 
-      {/* <CChooseFile /> 
+      <CChooseFile />
       <br></br>
       <br></br>
       <br></br>
       <br></br>
-      */}
 
-      {/* <CDropDown
+      <CDropDown
         cHintText="DropDown Heading"
         cData={data}
         cErrorMsg={errorData[error]}
@@ -261,17 +263,17 @@ export default function App() {
       <br></br>
       <br></br>
       <br></br>
-      <br></br> 
+      <br></br>
 
       <CDateTimePicker />
 
       <br></br>
       <br></br>
       <br></br>
-      <br></br> */}
+      <br></br>
 
-      {/* <CText cVariant="header_card" cText="Hello" />
-      
+      <CText cVariant="header_card" cText="Hello" />
+
       <br></br>
       <br></br>
       <br></br>
@@ -300,7 +302,7 @@ export default function App() {
       <br></br>
       <br></br>
       <br></br>
-      <br></br> */}
+      <br></br>
       {/* <VG>
         <CButton
           cText="Submit"
@@ -317,9 +319,9 @@ export default function App() {
       <br></br>
       <br></br>
       <br></br>
-      {/* <CGrid /> */}
+
       {/* <CUI /> */}
-      <Homepage />
+      {/* <Homepage /> */}
       {/* <Extra />
       <br></br>
       <br></br>

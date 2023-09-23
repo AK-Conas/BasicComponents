@@ -15,9 +15,19 @@ import { Card, CardContent, Typography } from "@mui/material";
 import CGrid from "./CGrid";
 import CUI from "./structure/CUI";
 // import CarouselEffect from "./CarouselEffect";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Button from "@mui/material/Button";
-
+const themeMain = createTheme({
+  palette: {
+    primary: {
+      main: "#042560",
+    },
+    secondary: {
+      main: "#3cb043",
+    },
+  },
+});
 export default function App() {
   const handleClick = () => {
     // Handle button click here
@@ -100,210 +110,214 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <CGrid />
-      {/* 
-      <CarouselEffect />
-      
-      <CImportant />*/}
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+      <ThemeProvider theme={themeMain}>
+        <h1>Hello CodeSandbox</h1>
+        <CGrid />
+        {/* 
+      <CarouselEffect />*/}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CButton
-        cText="This is Conas Custom Default Button with text only"
-        cTooltipText="Default Button"
-        cOnClick={handleClick}
-      />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CButton
-        cText="This is Conas Custom Disabled Button with text only"
-        cDisabled={true}
-        cTooltipText="Disabled Button"
-        cOnClick={handleClick}
-      />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CDateTimePicker />
+        <CImportant />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CButton
-        cSrcSimple={<CloseIcon />}
-        cTooltipText="Link Button"
-        cOnClick={handleClick}
-        cLink={"https://mui.com/material-ui/react-floating-action-button/"}
-      />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CButton
-        cSrc={<EditIcon />}
-        cTooltipText="Image  Button"
-        cOnClick={handleClick}
-      />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CButton
-        cSrc={<EditIcon />}
-        cDisabled={true}
-        cTooltipText="Image Disabled Button"
-        cOnClick={handleClick}
-      />
+        <CButton
+          cText="This is Conas Custom Default Button with text only"
+          cTooltipText="Default Button"
+          cOnClick={handleClick}
+        />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CButton
+          cText="This is Conas Custom Disabled Button with text only"
+          cDisabled={true}
+          cTooltipText="Disabled Button"
+          cOnClick={handleClick}
+        />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CButton
+          cSrcSimple={<CloseIcon />}
+          cTooltipText="Link Button"
+          cOnClick={handleClick}
+          cLink={"https://mui.com/material-ui/react-floating-action-button/"}
+        />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CButton
+          cSrc={<EditIcon />}
+          cTooltipText="Image  Button"
+          cOnClick={handleClick}
+        />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CButton
+          cSrc={<EditIcon />}
+          cDisabled={true}
+          cTooltipText="Image Disabled Button"
+          cOnClick={handleClick}
+        />
 
-      <CInput cHintText="This is Default Input Text" />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CInput cHintText="This is Default Input Text" />
 
-      <CInput cDisabled={true} cHintText="This is Disabled Input Text" />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CInput cDisabled={true} cHintText="This is Disabled Input Text" />
 
-      <CInput
-        cHintText="This is Error Input Text"
-        cErrorMsg={errorData[error]}
-      />
-      <br></br>
-      <br></br>
-      <Button variant="contained" onClick={handleToggle}>
-        Toggle Error
-      </Button>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CInput
+          cHintText="This is Error Input Text"
+          cErrorMsg={errorData[error]}
+        />
+        <br></br>
+        <br></br>
+        <Button variant="contained" onClick={handleToggle}>
+          Toggle Error
+        </Button>
 
-      <CInput cHintText="This is Numeric Input Text" cType={"number"} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CInput cHintText="This is Numeric Input Text" cType={"number"} />
 
-      <CInput cHintText="This is Text Area" cRows={10} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CInput cHintText="This is Search Input Text" cType={"search"} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CInput cHintText="This is Text Area" cRows={10} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CInput cHintText="This is Search Input Text" cType={"search"} />
 
-      <CCheckButton cLabel="This is check button default" isMultiple={true} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CCheckButton cLabel="This is check button default" isMultiple={true} />
 
-      <CCheckButton
-        cLabel="This is check button disabled"
-        isMultiple={true}
-        isDisabled={true}
-      />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CCheckButton
+          cLabel="This is check button disabled"
+          isMultiple={true}
+          isDisabled={true}
+        />
 
-      <CCheckButton cLabel="This is radio button default" />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CCheckButton cLabel="This is radio button default" />
 
-      <CCheckButton cLabel="This is radio button disabled" isDisabled={true} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CCheckButton
+          cLabel="This is radio button disabled"
+          isDisabled={true}
+        />
 
-      <CChooseFile />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CDropDown
-        cHintText="DropDown Heading"
-        cData={data}
-        cErrorMsg={errorData[error]}
-      />
+        <CChooseFile />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
+        <CDropDown
+          cHintText="DropDown Heading"
+          cData={data}
+          cErrorMsg={errorData[error]}
+        />
 
-      <Button variant="contained" onClick={handleToggle}>
-        Toggle Error
-      </Button>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <Button variant="contained" onClick={handleToggle}>
+          Toggle Error
+        </Button>
 
-      <CDateTimePicker />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CText cVariant="header_card" cText="Hello Header" />
+        <CText cVariant="title_card" cText="Hello Title" />
+        <CText cText="Hello Other" />
 
-      <CText cVariant="header_card" cText="Hello" />
-
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCard c_data={cardData1} c_header="Header is here" />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCard c_data={cardData1} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCard c_data={cardData2} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCard c_data={cardData3} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCard c_tabdata={tabData} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      {/* <VG>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CCard c_data={cardData1} c_header="Header is here" />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CCard c_data={cardData1} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CCard c_data={cardData2} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CCard c_data={cardData3} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CCard c_tabdata={tabData} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        {/* <VG>
         <CButton
           cText="Submit"
           cTooltipText="Default Button"
@@ -315,18 +329,19 @@ export default function App() {
           cOnClick={handleClick}
         />
       </VG> */}
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      {/* <CUI /> */}
-      {/* <Homepage /> */}
-      {/* <Extra />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br> */}
+        {/* <CUI /> */}
+        {/* <Homepage /> */}
+        <Extra />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+      </ThemeProvider>
     </div>
   );
 }

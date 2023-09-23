@@ -3,21 +3,15 @@ import IconButton from "@mui/material/IconButton";
 import Fab from "@mui/material/Fab";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const themeMain = createTheme({
-  palette: {
-    primary: {
-      main: "#042560",
-    },
-    secondary: {
-      main: "#3cb043",
-    },
-  },
-});
 //todo check later  cursor:(isDisabled?'not-allowed':'inherit')
-//cTooltipText - check how to add tooltip in mui,  href={cLink}
-function CButton({
+//sx={{ cursor: cDisabled ? "not-allowed" : "inherit" }} only working for normal button
+//href={cLink}
+//variant="extended"
+//{cSrc} Hello
+//todo can use if want both text and icon
+
+const CButton = ({
   cText,
   cSrc,
   cSrcSimple,
@@ -25,7 +19,7 @@ function CButton({
   cDisabled,
   cOnClick,
   cLink,
-}) {
+}) => {
   const buttonStyle = {
     fontWeight: "bold",
     padding: "1em",
@@ -34,74 +28,61 @@ function CButton({
 
   const handleClick = () => {
     // Handle button click here
-    console.log("is this working button.js");
+    //console.log("is this working button.js");
     if (cOnClick !== undefined) {
       cOnClick();
     }
   };
-
+  //span is added in order to show tooltip on disabled element
   if (cSrcSimple !== undefined) {
     return (
-      <ThemeProvider theme={themeMain}>
-        <Tooltip title={cTooltipText} arrow>
-          <span>
-            <IconButton
-              aria-label={cTooltipText}
-              disabled={cDisabled}
-              onClick={handleClick}
-              color="primary"
-            >
-              {cSrcSimple}
-            </IconButton>
-          </span>
-        </Tooltip>
-      </ThemeProvider>
+      <Tooltip title={cTooltipText} arrow>
+        <span>
+          <IconButton
+            aria-label={cTooltipText}
+            disabled={cDisabled}
+            onClick={handleClick}
+            color="primary"
+          >
+            {cSrcSimple}
+          </IconButton>
+        </span>
+      </Tooltip>
     );
-  }
-  //  variant="extended"
-  // {cSrc} Hello
-  // todo can use if want both text and icon
-
-  //span is added in order to show tooltip on disabled element
-  if (cSrc !== undefined) {
+  } else if (cSrc !== undefined) {
     return (
-      <ThemeProvider theme={themeMain}>
-        <Tooltip title={cTooltipText} arrow>
-          <span>
-            <Fab
-              aria-label={cTooltipText}
-              disabled={cDisabled}
-              onClick={handleClick}
-              color="primary"
-              variant="contained"
-            >
-              {cSrc}
-            </Fab>
-          </span>
-        </Tooltip>
-      </ThemeProvider>
+      <Tooltip title={cTooltipText} arrow>
+        <span>
+          <Fab
+            aria-label={cTooltipText}
+            disabled={cDisabled}
+            onClick={handleClick}
+            color="primary"
+            variant="contained"
+          >
+            {cSrc}
+          </Fab>
+        </span>
+      </Tooltip>
     );
-  }
-  if (cText !== undefined) {
+  } else if (cText !== undefined) {
     return (
-      <ThemeProvider theme={themeMain}>
-        <Tooltip title={cTooltipText} arrow>
-          <span>
-            <Button
-              aria-label={cTooltipText}
-              disabled={cDisabled}
-              onClick={handleClick}
-              color="primary"
-              variant="contained"
-              style={buttonStyle}
-            >
-              {cText}
-            </Button>
-          </span>
-        </Tooltip>
-      </ThemeProvider>
+      <Tooltip title={cTooltipText} arrow>
+        <span>
+          <Button
+            aria-label={cTooltipText}
+            disabled={cDisabled}
+            onClick={handleClick}
+            color="primary"
+            variant="contained"
+            style={buttonStyle}
+          >
+            {cText}
+          </Button>
+        </span>
+      </Tooltip>
     );
   }
-}
+};
 
 export default CButton;

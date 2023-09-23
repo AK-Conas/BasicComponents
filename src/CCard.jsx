@@ -3,9 +3,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CText from "./CText";
 
-function CCard({ c_data, c_header }) {
+const CCard = ({ c_data, c_header, cTooltipText }) => {
   return (
-    <Card>
+    <Card aria-label={cTooltipText}>
       {c_header !== undefined && (
         <CText cVariant="header_card" cText={c_header} />
       )}
@@ -19,5 +19,5 @@ function CCard({ c_data, c_header }) {
         ))}
     </Card>
   );
-}
+};
 export default CCard;

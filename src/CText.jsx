@@ -1,43 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const themeMain = createTheme({
-  palette: {
-    primary: {
-      main: "#042560",
-    },
-    secondary: {
-      main: "#3cb043",
-    },
-  },
-});
-
-const CText = ({ cVariant, cDisabled, cText }) => {
+//todo add disabled as variant, if needed
+const CText = ({ cVariant, cText, cTooltipText }) => {
   let tColor = "inherit";
   if (cVariant === "header_card") {
     tColor = "white";
     cVariant = "h6";
     return (
-      <ThemeProvider theme={themeMain}>
-        <Box bgcolor="secondary.main" p={2}>
-          <Typography variant={cVariant} color={tColor}>
-            {cText}
-          </Typography>
-        </Box>
-      </ThemeProvider>
+      <Box bgcolor="secondary.main" p={2} aria-label={cTooltipText}>
+        <Typography variant={cVariant} color={tColor}>
+          {cText}
+        </Typography>
+      </Box>
     );
   } else if (cVariant === "title_card") {
-    tColor = "primary";
+    tColor = "secondary";
     cVariant = "subtitle1";
   }
   return (
-    <ThemeProvider theme={themeMain}>
-      <Typography variant={cVariant} color={tColor}>
-        {cText}
-      </Typography>
-    </ThemeProvider>
+    <Typography variant={cVariant} color={tColor} aria-label={cTooltipText}>
+      {cText}
+    </Typography>
   );
 };
 

@@ -1,60 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Radio from "@mui/material/Radio";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const themeMain = createTheme({
-  palette: {
-    primary: {
-      main: "#042560",
-    },
-    secondary: {
-      main: "#3cb043",
-    },
-  },
-});
-
-const CheckButton = ({
+const CCheckButton = ({
   cLabel,
   isChecked,
   handleChange,
   isDisabled,
   isMultiple,
+  cTooltipText,
 }) => {
   if (isMultiple) {
     return (
-      <ThemeProvider theme={themeMain}>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={isChecked}
-              onChange={handleChange}
-              disabled={isDisabled}
-              color="secondary"
-            />
-          }
-          label={cLabel}
-        />
-      </ThemeProvider>
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={isChecked}
+            onChange={handleChange}
+            disabled={isDisabled}
+            color="secondary"
+          />
+        }
+        label={cLabel}
+        aria-label={cTooltipText}
+      />
     );
   } else {
     return (
-      <ThemeProvider theme={themeMain}>
-        <FormControlLabel
-          control={
-            <Radio
-              checked={isChecked}
-              onChange={handleChange}
-              disabled={isDisabled}
-              color="secondary"
-            />
-          }
-          label={cLabel}
-        />
-      </ThemeProvider>
+      <FormControlLabel
+        control={
+          <Radio
+            checked={isChecked}
+            onChange={handleChange}
+            disabled={isDisabled}
+            color="secondary"
+          />
+        }
+        label={cLabel}
+        aria-label={cTooltipText}
+      />
     );
   }
 };
 
-export default CheckButton;
+export default CCheckButton;

@@ -21,11 +21,12 @@ const CInput = ({
   cRows,
   cChange,
   cInputProps,
-  cTooltipText,
 }) => {
+  if (cHintText === undefined) {
+    cHintText = "";
+  }
   return (
     <TextField
-      aria-label={cTooltipText}
       disabled={cDisabled}
       label={cHintText}
       color="primary"

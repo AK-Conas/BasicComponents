@@ -112,7 +112,7 @@ export default function App() {
     <div className="App">
       <ThemeProvider theme={themeMain}>
         <h1>Hello CodeSandbox</h1>
-        <CGrid />
+        {/* <CGrid /> */}
         {/* 
       <CarouselEffect />*/}
         <br></br>
@@ -121,6 +121,12 @@ export default function App() {
         <br></br>
 
         <CDateTimePicker />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <CChooseFile cFileType="IMG" />
         <CImportant />
         <br></br>
         <br></br>
@@ -260,8 +266,8 @@ export default function App() {
         <br></br>
         <br></br>
         <br></br>
+        <CCheckButton />
 
-        <CChooseFile />
         <br></br>
         <br></br>
         <br></br>

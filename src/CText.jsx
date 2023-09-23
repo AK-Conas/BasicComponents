@@ -3,13 +3,13 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 //todo add disabled as variant, if needed
-const CText = ({ cVariant, cText, cTooltipText }) => {
+const CText = ({ cVariant, cText }) => {
   let tColor = "inherit";
   if (cVariant === "header_card") {
     tColor = "white";
     cVariant = "h6";
     return (
-      <Box bgcolor="secondary.main" p={2} aria-label={cTooltipText}>
+      <Box bgcolor="secondary.main" p={2}>
         <Typography variant={cVariant} color={tColor}>
           {cText}
         </Typography>
@@ -20,7 +20,7 @@ const CText = ({ cVariant, cText, cTooltipText }) => {
     cVariant = "subtitle1";
   }
   return (
-    <Typography variant={cVariant} color={tColor} aria-label={cTooltipText}>
+    <Typography variant={cVariant} color={tColor}>
       {cText}
     </Typography>
   );

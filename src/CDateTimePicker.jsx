@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CDateTimePicker = (cTooltipText) => {
+const CDateTimePicker = ({ cTooltipText }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const handleDateChange = (e) => {

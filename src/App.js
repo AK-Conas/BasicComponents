@@ -19,7 +19,7 @@ import CUI from "./structure/CUI";
 import CAvatar from "./CAvatar";
 import CAlertToast from "./CAlertToast";
 import CToast from "./CToast";
-// import CarouselEffect from "./CarouselEffect";
+import CButtonGroup from "./CButtonGroup";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Button from "@mui/material/Button";
@@ -215,34 +215,74 @@ export default function App() {
         value: 4.0,
       },
     ],
-    // {
-    //   name: "Ice cream sandwich",
-    //   calories: 159,
-    //   fat: 6.0,
-    //   carbs: 24,
-    //   protein: 4.0,
-    // },
-    // {
-    //   name: "Eclair",
-    //   calories: 159,
-    //   fat: 6.0,
-    //   carbs: 24,
-    //   protein: 4.0,
-    // },
-    // {
-    //   name: "Cupcake",
-    //   calories: 159,
-    //   fat: 6.0,
-    //   carbs: 24,
-    //   protein: 4.0,
-    // },
-    // {
-    //   name: "Gingerbread",
-    //   calories: 159,
-    //   fat: 6.0,
-    //   carbs: 24,
-    //   protein: 4.0,
-    // },
+    [
+      {
+        value: "Eclair",
+      },
+      {
+        value: 159,
+      },
+      {
+        value: 6.0,
+      },
+      {
+        value: 24,
+      },
+      {
+        value: 4.0,
+      },
+    ],
+    [
+      {
+        value: "Cupcake",
+      },
+      {
+        value: 159,
+      },
+      {
+        value: 6.0,
+      },
+      {
+        value: 24,
+      },
+      {
+        value: 4.0,
+      },
+    ],
+    [
+      {
+        value: "Gingerbread",
+      },
+      {
+        value: 159,
+      },
+      {
+        value: 6.0,
+      },
+      {
+        value: 24,
+      },
+      {
+        value: 4.0,
+      },
+    ],
+    [
+      {
+        value: "Donuts",
+      },
+      {
+        value: 159,
+      },
+      {
+        value: 6.0,
+      },
+      {
+        value: 24,
+      },
+      {
+        value: 4.0,
+      },
+    ],
   ];
   const gridHeadData = [
     "Dessert (100g serving)",
@@ -255,6 +295,12 @@ export default function App() {
     <div className="App">
       <ThemeProvider theme={themeMain}>
         <h1>Hello CodeSandbox</h1>
+
+        <CButtonGroup />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <CGrid cGridData={gridData} cHeaderData={gridHeadData} />
         <br></br>
         <br></br>

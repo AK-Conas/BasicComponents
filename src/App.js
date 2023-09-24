@@ -175,14 +175,91 @@ export default function App() {
     { label: "Opion 2", value: "option2" },
     { label: "Option 3", value: "option3" },
   ];
-  // const product = productData.map(() => (
-  //   <ImageProduct name={productData.name} url={productData.imageurl} />
-  // ));
+
+  // const createData=>(name, calories, fat, carbs, protein) {
+  //   return { name, calories, fat, carbs, protein };
+  // }
+
+  const gridData = [
+    [
+      {
+        value: "Frozen yoghurt",
+      },
+      {
+        value: 159,
+      },
+      {
+        value: 6.0,
+      },
+      {
+        value: 24,
+      },
+      {
+        value: 4.0,
+      },
+    ],
+    [
+      {
+        value: "Ice cream sandwich",
+      },
+      {
+        value: 159,
+      },
+      {
+        value: 6.0,
+      },
+      {
+        value: 24,
+      },
+      {
+        value: 4.0,
+      },
+    ],
+    // {
+    //   name: "Ice cream sandwich",
+    //   calories: 159,
+    //   fat: 6.0,
+    //   carbs: 24,
+    //   protein: 4.0,
+    // },
+    // {
+    //   name: "Eclair",
+    //   calories: 159,
+    //   fat: 6.0,
+    //   carbs: 24,
+    //   protein: 4.0,
+    // },
+    // {
+    //   name: "Cupcake",
+    //   calories: 159,
+    //   fat: 6.0,
+    //   carbs: 24,
+    //   protein: 4.0,
+    // },
+    // {
+    //   name: "Gingerbread",
+    //   calories: 159,
+    //   fat: 6.0,
+    //   carbs: 24,
+    //   protein: 4.0,
+    // },
+  ];
+  const gridHeadData = [
+    "Dessert (100g serving)",
+    "Calories",
+    "Fat (g)",
+    "Carbs (g)",
+    "Protein (g)",
+  ];
   return (
     <div className="App">
       <ThemeProvider theme={themeMain}>
         <h1>Hello CodeSandbox</h1>
-        {/* <CGrid /> */}
+        <CGrid cGridData={gridData} cHeaderData={gridHeadData} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         {/* 
       <CarouselEffect />*/}
         <CFilterGroup

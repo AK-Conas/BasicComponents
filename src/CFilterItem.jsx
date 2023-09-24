@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import Card from "@mui/material/Card";
 import IconButton from "@mui/material/IconButton";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
@@ -20,7 +20,12 @@ const CFilterItem = ({
   cShowDelete,
   cTooltipText,
 }) => {
-  const handleResetClick = (e) => {};
+  const [data, setData] = useState(cData);
+  const [filteredData, setFilteredData] = useState(cData);
+
+  const handleResetClick = (e) => {
+    setFilteredData(cData);
+  };
   if (cShowDelete === undefined) {
     cShowDelete = true;
   }
@@ -53,7 +58,7 @@ const CFilterItem = ({
       {cShowSearch && (
         <CInput cHintText="Search" cType={"search"} cVariant={"filled"} />
       )}
-      {cData !== undefined && <CCheckGroup cData={cData} cSingle={cSingle} />}
+      <CCheckGroup cData={filteredData} cSingle={cSingle} />
     </Card>
   );
 };

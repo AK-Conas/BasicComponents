@@ -7,7 +7,7 @@ import CDateTimePicker from "./CDateTimePicker";
 import Extra from "./Extra";
 import CImportant from "./CImportant";
 import CCarousel from "./CCarousel";
-import CFilterItem from "./CFilterItem";
+import CFilterGroup from "./CFilterGroup";
 import CText from "./CText";
 import CCard from "./CCard";
 import React, { useState } from "react";
@@ -185,11 +185,15 @@ export default function App() {
         {/* <CGrid /> */}
         {/* 
       <CarouselEffect />*/}
-        <CFilterItem
+        <CFilterGroup
           cHeader="Filter Serach Header"
           cData={filterData1}
           cSingle={false}
         />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <CCarousel cProduct={productData} />
         <br></br>
         <br></br>

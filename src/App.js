@@ -14,6 +14,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Card, CardContent, Typography } from "@mui/material";
 import CGrid from "./CGrid";
 import CUI from "./structure/CUI";
+import CAvatar from "./CAvatar";
+import CAlertToast from "./CAlertToast";
+import CALT from "./CALT";
 // import CarouselEffect from "./CarouselEffect";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -108,6 +111,30 @@ export default function App() {
     },
   ];
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickA = () => {
+    setOpen(true);
+  };
+
+  const handleCloseA = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const [cMessage, setCMessage] = React.useState(undefined);
+  const [cOpen, setCOpen] = React.useState(false);
+  const handleAlert = (message) => {
+    setCMessage(message);
+    setCOpen(true);
+  };
+  const handleAlertClose = () => {
+    setCMessage(undefined);
+    setCOpen(false);
+  };
   return (
     <div className="App">
       <ThemeProvider theme={themeMain}>
@@ -120,6 +147,29 @@ export default function App() {
         <br></br>
         <br></br>
 
+        <CButton
+          cText="Alert Message 1"
+          cTooltipText="Default Button"
+          cOnClick={() => handleAlert("Alert Message 1")}
+        />
+        {/* <Button variant="contained">Alert Message 1</Button> */}
+        {cMessage !== undefined && (
+          <CALT
+            cMessage={cMessage}
+            cOpen={cOpen}
+            cType={"success"}
+            handleAlertClose={handleAlertClose}
+          />
+        )}
+        {/* <CALT cMessage={cMessage} /> */}
+        {/* 
+        open={open}
+          autoHideDuration={6000}
+          onClose={handleCloseA}
+          message="Note archived"
+          action={action}
+        type=""
+        onClose="" */}
         <CDateTimePicker />
         <br></br>
         <br></br>
@@ -127,6 +177,8 @@ export default function App() {
         <br></br>
 
         <CChooseFile cFileType="IMG" />
+        <CAvatar />
+
         <CImportant />
         <br></br>
         <br></br>

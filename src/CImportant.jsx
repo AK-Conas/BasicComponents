@@ -83,7 +83,6 @@ export default function CImportant() {
 
   return (
     <div>
-      <Avatar sx={{ bgcolor: "#3cb043" }}>A</Avatar>
       <IconButton aria-label="cart">
         <Badge badgeContent={4} color="secondary">
           <ShoppingCartIcon />

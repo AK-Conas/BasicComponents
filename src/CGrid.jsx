@@ -1,32 +1,42 @@
 import * as React from "react";
+import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-export default function BasicTable({ cHeaderData, cGridData }) {
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+const CGrid = ({ cHeaderData, cGridData, CTooltipText }) => {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650 }} aria-label={CTooltipText}>
         <TableHead>
           <TableRow>
             {cHeaderData.map((row, index) => (
-              <TableCell key={index}>{row}</TableCell>
+              <StyledTableCell key={index}>{row}</StyledTableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {cGridData.map((row, index) => (
+          {cGridData.map((gridRow, index) => (
             <TableRow
               key={index}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              {row.map((value, index) => (
+              {gridRow.map((rowData, index) => (
                 <TableCell component="th" scope="row">
-                  {value.value}
+                  {rowData.value}
                 </TableCell>
               ))}
             </TableRow>
@@ -35,4 +45,6 @@ export default function BasicTable({ cHeaderData, cGridData }) {
       </Table>
     </TableContainer>
   );
-}
+};
+
+export default CGrid;

@@ -7,6 +7,7 @@ import CDateTimePicker from "./CDateTimePicker";
 import Extra from "./Extra";
 import CImportant from "./CImportant";
 import CCarousel from "./CCarousel";
+import CFilterItem from "./CFilterItem";
 import CText from "./CText";
 import CCard from "./CCard";
 import React, { useState } from "react";
@@ -143,12 +144,12 @@ export default function App() {
     {
       id: 1,
       imageUrl: "./img1.jpg",
+      name: "Flower Local",
     },
     {
       id: 2,
       imageUrl:
         "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      name: "Sport sneakers",
     },
     {
       id: 3,
@@ -169,6 +170,11 @@ export default function App() {
       name: "Vans sneakers",
     },
   ];
+  const filterData1 = [
+    { label: "Option 1", value: "option1", isDisabled: true },
+    { label: "Opion 2", value: "option2" },
+    { label: "Option 3", value: "option3" },
+  ];
   // const product = productData.map(() => (
   //   <ImageProduct name={productData.name} url={productData.imageurl} />
   // ));
@@ -179,6 +185,11 @@ export default function App() {
         {/* <CGrid /> */}
         {/* 
       <CarouselEffect />*/}
+        <CFilterItem
+          cHeader="Filter Serach Header"
+          cData={filterData1}
+          cSingle={false}
+        />
         <CCarousel cProduct={productData} />
         <br></br>
         <br></br>
@@ -321,7 +332,21 @@ export default function App() {
         <br></br>
         <br></br>
 
-        <CCheckButton cLabel="This is check button default" cMultiple={true} />
+        <CCheckButton cLabel="This is check button default" />
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <CCheckButton cLabel="This is check button disabled" cDisabled={true} />
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <CCheckButton cLabel="This is radio button default" cSingle={true} />
 
         <br></br>
         <br></br>
@@ -329,24 +354,10 @@ export default function App() {
         <br></br>
 
         <CCheckButton
-          cLabel="This is check button disabled"
-          cMultiple={true}
+          cLabel="This is radio button disabled"
+          cSingle={true}
           cDisabled={true}
         />
-
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-
-        <CCheckButton cLabel="This is radio button default" />
-
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-
-        <CCheckButton cLabel="This is radio button disabled" cDisabled={true} />
 
         <br></br>
         <br></br>

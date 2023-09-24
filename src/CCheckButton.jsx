@@ -6,18 +6,28 @@ import Radio from "@mui/material/Radio";
 const CCheckButton = ({
   cLabel,
   cChecked,
-  cHandleChange,
+  cHandleCheck,
+  cHandleUnCheck,
   cDisabled,
-  cMultiple,
+  cSingle,
   cTooltipText,
 }) => {
-  if (cMultiple) {
+  const [checked, setChecked] = React.useState(cChecked);
+  const onHandleChange = (event) => {
+    setChecked(event.target.checked);
+    if (cHandleCheck !== undefined && event.target.checked === true) {
+      cHandleCheck();
+    } else if (cHandleUnCheck !== undefined && event.target.checked === false) {
+      cHandleUnCheck();
+    }
+  };
+  if (cSingle === true) {
     return (
       <FormControlLabel
         control={
-          <Checkbox
-            checked={cChecked}
-            onChange={cHandleChange}
+          <Radio
+            checked={checked}
+            onChange={onHandleChange}
             disabled={cDisabled}
             color="secondary"
           />
@@ -30,9 +40,9 @@ const CCheckButton = ({
     return (
       <FormControlLabel
         control={
-          <Radio
-            checked={cChecked}
-            onChange={cHandleChange}
+          <Checkbox
+            checked={checked}
+            onChange={onHandleChange}
             disabled={cDisabled}
             color="secondary"
           />

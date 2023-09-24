@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Snackbar } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";

@@ -11,15 +11,7 @@ import Tooltip from "@mui/material/Tooltip";
 //{cSrc} Hello
 //todo can use if want both text and icon
 
-const CButton = ({
-  cText,
-  cSrc,
-  cSrcSimple,
-  cTooltipText,
-  cDisabled,
-  cOnClick,
-  cLink,
-}) => {
+const CButton = ({ cText, cSrc, cTooltipText, cDisabled, cOnClick, cLink }) => {
   const buttonStyle = {
     fontWeight: "bold",
     padding: "1em",
@@ -34,22 +26,7 @@ const CButton = ({
     }
   };
   //span is added in order to show tooltip on disabled element
-  if (cSrcSimple !== undefined) {
-    return (
-      <Tooltip title={cTooltipText} arrow>
-        <span>
-          <IconButton
-            aria-label={cTooltipText}
-            disabled={cDisabled}
-            onClick={handleClick}
-            color="primary"
-          >
-            {cSrcSimple}
-          </IconButton>
-        </span>
-      </Tooltip>
-    );
-  } else if (cSrc !== undefined) {
+  if (cSrc !== undefined) {
     return (
       <Tooltip title={cTooltipText} arrow>
         <span>

@@ -6,6 +6,7 @@ import CDropDown from "./CDropDown";
 import CDateTimePicker from "./CDateTimePicker";
 import Extra from "./Extra";
 import CImportant from "./CImportant";
+import CCarousel from "./CCarousel";
 import CText from "./CText";
 import CCard from "./CCard";
 import React, { useState } from "react";
@@ -16,7 +17,7 @@ import CGrid from "./CGrid";
 import CUI from "./structure/CUI";
 import CAvatar from "./CAvatar";
 import CAlertToast from "./CAlertToast";
-import CALT from "./CALT";
+import CToast from "./CToast";
 // import CarouselEffect from "./CarouselEffect";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -127,14 +128,50 @@ export default function App() {
 
   const [cMessage, setCMessage] = React.useState(undefined);
   const [cOpen, setCOpen] = React.useState(false);
-  const handleAlert = (message) => {
+  const [cType, setCType] = React.useState(false);
+  const handleAlert = (message, type) => {
     setCMessage(message);
     setCOpen(true);
+    setCType(type);
   };
   const handleAlertClose = () => {
     setCMessage(undefined);
     setCOpen(false);
+    setCType(undefined);
   };
+  const productData = [
+    {
+      id: 1,
+      imageUrl: "./img1.jpg",
+    },
+    {
+      id: 2,
+      imageUrl:
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      name: "Sport sneakers",
+    },
+    {
+      id: 3,
+      imageUrl:
+        "https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      name: "iWatch",
+    },
+    {
+      id: 4,
+      imageUrl:
+        "https://images.unsplash.com/photo-1610824352934-c10d87b700cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      name: "Water Bottle",
+    },
+    {
+      id: 5,
+      imageUrl:
+        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      name: "Vans sneakers",
+    },
+  ];
+  // const product = productData.map(() => (
+  //   <ImageProduct name={productData.name} url={productData.imageurl} />
+  // ));
   return (
     <div className="App">
       <ThemeProvider theme={themeMain}>
@@ -142,6 +179,7 @@ export default function App() {
         {/* <CGrid /> */}
         {/* 
       <CarouselEffect />*/}
+        <CCarousel cProduct={productData} />
         <br></br>
         <br></br>
         <br></br>
@@ -150,26 +188,25 @@ export default function App() {
         <CButton
           cText="Alert Message 1"
           cTooltipText="Default Button"
-          cOnClick={() => handleAlert("Alert Message 1")}
+          cOnClick={() => handleAlert("Alert Message 1", "success")}
         />
-        {/* <Button variant="contained">Alert Message 1</Button> */}
+        <CButton
+          cText="Alert Message 2"
+          cTooltipText="Default Button"
+          cOnClick={() => handleAlert("Alert Message 2", "error")}
+        />
         {cMessage !== undefined && (
-          <CALT
+          <CToast
             cMessage={cMessage}
             cOpen={cOpen}
-            cType={"success"}
-            handleAlertClose={handleAlertClose}
+            cType={cType}
+            cHandleAlertClose={handleAlertClose}
           />
         )}
-        {/* <CALT cMessage={cMessage} /> */}
-        {/* 
-        open={open}
-          autoHideDuration={6000}
-          onClose={handleCloseA}
-          message="Note archived"
-          action={action}
-        type=""
-        onClose="" */}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <CDateTimePicker />
         <br></br>
         <br></br>
@@ -284,7 +321,7 @@ export default function App() {
         <br></br>
         <br></br>
 
-        <CCheckButton cLabel="This is check button default" isMultiple={true} />
+        <CCheckButton cLabel="This is check button default" cMultiple={true} />
 
         <br></br>
         <br></br>
@@ -293,8 +330,8 @@ export default function App() {
 
         <CCheckButton
           cLabel="This is check button disabled"
-          isMultiple={true}
-          isDisabled={true}
+          cMultiple={true}
+          cDisabled={true}
         />
 
         <br></br>
@@ -309,10 +346,7 @@ export default function App() {
         <br></br>
         <br></br>
 
-        <CCheckButton
-          cLabel="This is radio button disabled"
-          isDisabled={true}
-        />
+        <CCheckButton cLabel="This is radio button disabled" cDisabled={true} />
 
         <br></br>
         <br></br>
@@ -350,27 +384,27 @@ export default function App() {
         <br></br>
         <br></br>
         <br></br>
-        <CCard c_data={cardData1} c_header="Header is here" />
+        <CCard cData={cardData1} cHeader="Header is here" />
         <br></br>
         <br></br>
         <br></br>
         <br></br>
-        <CCard c_data={cardData1} />
+        <CCard cData={cardData1} />
         <br></br>
         <br></br>
         <br></br>
         <br></br>
-        <CCard c_data={cardData2} />
+        <CCard cData={cardData2} />
         <br></br>
         <br></br>
         <br></br>
         <br></br>
-        <CCard c_data={cardData3} />
+        <CCard cData={cardData3} />
         <br></br>
         <br></br>
         <br></br>
         <br></br>
-        <CCard c_tabdata={tabData} />
+        <CCard cTabdata={tabData} />
         <br></br>
         <br></br>
         <br></br>

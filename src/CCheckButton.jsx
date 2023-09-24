@@ -5,20 +5,20 @@ import Radio from "@mui/material/Radio";
 
 const CCheckButton = ({
   cLabel,
-  isChecked,
-  handleChange,
-  isDisabled,
-  isMultiple,
+  cChecked,
+  cHandleChange,
+  cDisabled,
+  cMultiple,
   cTooltipText,
 }) => {
-  if (isMultiple) {
+  if (cMultiple) {
     return (
       <FormControlLabel
         control={
           <Checkbox
-            checked={isChecked}
-            onChange={handleChange}
-            disabled={isDisabled}
+            checked={cChecked}
+            onChange={cHandleChange}
+            disabled={cDisabled}
             color="secondary"
           />
         }
@@ -31,9 +31,9 @@ const CCheckButton = ({
       <FormControlLabel
         control={
           <Radio
-            checked={isChecked}
-            onChange={handleChange}
-            disabled={isDisabled}
+            checked={cChecked}
+            onChange={cHandleChange}
+            disabled={cDisabled}
             color="secondary"
           />
         }

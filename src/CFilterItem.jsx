@@ -50,7 +50,9 @@ const CFilterItem = ({
           </Typography>
         </Box>
       )}
-      {cShowSearch && <CInput cHintText="Search" cType={"search"} />}
+      {cShowSearch && (
+        <CInput cHintText="Search" cType={"search"} cVariant={"filled"} />
+      )}
       {cData !== undefined && <CCheckGroup cData={cData} cSingle={cSingle} />}
     </Card>
   );

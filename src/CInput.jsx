@@ -13,6 +13,7 @@ import { TextField } from "@mui/material";
 //this does not work with typing, for that
 //method check has to be added
 const CInput = ({
+  cVariant,
   cHintText,
   cDisabled,
   cHelperText,
@@ -30,6 +31,7 @@ const CInput = ({
       disabled={cDisabled}
       label={cHintText}
       color="primary"
+      variant={cVariant === undefined ? "outlined" : cVariant}
       error={cErrorMsg === undefined ? "" : cErrorMsg}
       type={cType === undefined ? "text" : cType}
       helperText={cHelperText === undefined ? " " : cHelperText}
@@ -37,6 +39,7 @@ const CInput = ({
       inputProps={cInputProps}
       onChange={cChange}
       rows={cRows === undefined ? 10 : cRows}
+      fullWidth
     />
   );
 };

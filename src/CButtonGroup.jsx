@@ -1,13 +1,14 @@
 import * as React from "react";
-import ButtonGroup from "@mui/material/ButtonGroup";
+import Stack from "@mui/material/Stack";
 import CButton from "./CButton";
 
 const CButtonGroup = ({}) => {
   return (
-    <ButtonGroup>
-      <CButton cMarginRight={true} cText="One" />
-      <CButton cText="Two" />
-    </ButtonGroup>
+    <Stack direction="row" spacing={2}>
+      <CButton cText="OneSeven" />
+      <CButton cText="TwoTwo" />
+      <CButton cText="Three" />
+    </Stack>
   );
 };
 

@@ -18,8 +18,9 @@ const CDropDown = ({ cHintText, cData, cErrorMsg }) => {
   const keyValuePairs = Object.entries(cData);
   return (
     <FormControl
-      sx={{ m: 1, minWidth: 300 }}
+      sx={{ minWidth: 300 }}
       error={cErrorMsg !== undefined && cErrorMsg !== ""}
+      fullWidth
     >
       <InputLabel>{cHintText}</InputLabel>
       <Select value={values} label={cHintText} onChange={handleChange}>

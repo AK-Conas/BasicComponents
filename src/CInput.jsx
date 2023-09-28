@@ -12,6 +12,13 @@ import { TextField } from "@mui/material";
 // }}
 //this does not work with typing, for that
 //method check has to be added
+/**
+ * Component for input
+ * @param {number} price - The price of the product.
+ * @param {number} quantity - The quantity of the product.
+ * @param {number} quantity - The quantity of the product.
+ * @param {number} quantity - The quantity of the product.
+ */
 const CInput = ({
   cVariant,
   cHintText,
@@ -21,6 +28,7 @@ const CInput = ({
   cType,
   cRows,
   cChange,
+  cinputProps,
   cInputProps,
 }) => {
   if (cHintText === undefined) {
@@ -36,7 +44,8 @@ const CInput = ({
       type={cType === undefined ? "text" : cType}
       helperText={cHelperText === undefined ? " " : cHelperText}
       multiline={cRows > 1 ? true : false}
-      inputProps={cInputProps}
+      inputProps={cinputProps}
+      InputProps={cInputProps}
       onChange={cChange}
       rows={cRows === undefined ? 10 : cRows}
       fullWidth

@@ -14,7 +14,7 @@ const CToast = ({ cHeader, cMessage, cOpen, cType, cHandleAlertClose }) => {
     return (
       <Snackbar
         anchorOrigin={{
-          vertical: "middle",
+          vertical: "top",
           horizontal: "center",
         }}
         open={cOpen}

@@ -11,20 +11,13 @@ import Tooltip from "@mui/material/Tooltip";
 //{cSrc} Hello
 //todo can use if want both text and icon
 
-const CButton = ({
-  cText,
-  cSrc,
-  cTooltipText,
-  cDisabled,
-  cOnClick,
-  cMarginRight,
-  cLink,
-}) => {
+const CButton = ({ cText, cSrc, cTooltipText, cDisabled, cOnClick, cLink }) => {
   const buttonStyle = {
     fontWeight: "bold",
     padding: "1em",
     borderRadius: "0.5em",
-    marginRight: cMarginRight ? "1em" : 0,
+    paddingLeft: "5em",
+    paddingRight: "5em",
   };
 
   const handleClick = () => {

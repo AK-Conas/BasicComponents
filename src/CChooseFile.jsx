@@ -16,6 +16,7 @@ const CChooseFile = ({ cFileType, cTooltipText, cDisabled, cHelperText }) => {
   if (cFileType === IMG_TYPE) {
     fileType = ".jpg, .jpeg, .png";
   }
+  //todo add other file types
   if (cHelperText === undefined) {
     cHelperText = "Choose File: " + fileType;
   }
@@ -25,7 +26,7 @@ const CChooseFile = ({ cFileType, cTooltipText, cDisabled, cHelperText }) => {
       cDisabled={cDisabled}
       cHelperText={cHelperText}
       cType={"file"}
-      cInputProps={{
+      cinputProps={{
         accept: fileType,
       }}
       cChange={handleFileChange}

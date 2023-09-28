@@ -108,7 +108,7 @@ export default function CImportant() {
           open={open}
           onClick={handleClose}
         >
-          <CircularProgress color="inherit" />
+          <CircularProgress color="primary" />
         </Backdrop>
       </div>
       <div>

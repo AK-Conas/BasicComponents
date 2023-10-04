@@ -1,3 +1,4 @@
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CInput from "./CInput";
 import CButton from "./CButton";
 import CCheckButton from "./CCheckButton";
@@ -25,10 +26,20 @@ import CBackDrop from "./CBackdrop";
 
 import Button from "@mui/material/Button";
 
+const themeMain = createTheme({
+  palette: {
+    primary: {
+      main: "#042560",
+    },
+    secondary: {
+      main: "#3CB043",
+    },
+  },
+});
 export default function Sample() {
   const handleClick = () => {
     // Handle button click here
-    console.log("is this working Sample.js");
+    console.log("is this working App.js");
   };
 
   // State variable to track the error state of the TextField
@@ -135,31 +146,33 @@ export default function Sample() {
   const productData = [
     {
       id: 1,
-      imageUrl: "./img1.jpg",
-      name: "Flower Local",
-    },
-    {
-      id: 2,
-      imageUrl:
-        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-    },
-    {
-      id: 3,
       imageUrl:
         "https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       name: "iWatch",
     },
     {
-      id: 4,
+      id: 2,
       imageUrl:
         "https://images.unsplash.com/photo-1610824352934-c10d87b700cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       name: "Water Bottle",
     },
     {
-      id: 5,
+      id: 3,
       imageUrl:
         "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       name: "Vans sneakers",
+    },
+    {
+      id: 4,
+      imageUrl:
+        "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      name: "Coco Noir",
+    },
+    {
+      id: 5,
+      imageUrl:
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      name: "Snikkers",
     },
   ];
   const filterData1 = [
@@ -284,280 +297,321 @@ export default function Sample() {
     "Protein (g)",
   ];
 
-  const [cOpen1, setCOpen1] = React.useState(false);
-  const handleOpen = () => {
-    setCOpen1(true);
-  };
-  const handleClose = () => {
-    setCOpen1(false);
+  // const [cOpen1, setCOpen1] = React.useState(false);
+
+  const [cCarousel, setCCarousel] = React.useState(false);
+
+  // const handleOpen = () => {
+  //   setCOpen1(true);
+  // };
+  // const handleClose = () => {
+  //   setCOpen1(false);
+  // };
+
+  // Function to open the dialog with specified scroll behavior
+  const handleCarouselOpen = () => () => {
+    // setOpen1(true);
+    // setScroll(scrollType);
+    setCCarousel(true);
   };
 
   return (
-    <div>
-      <h1>Hello CodeSandbox</h1>
-      <Header />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <Button onClick={handleOpen}>Show backdrop</Button>
-      <CBackDrop cOpen={cOpen1} cHandleClose={handleClose} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CButtonGroup />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CGrid cGridData={gridData} cHeaderData={gridHeadData} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      {/* 
+    <div className="App">
+      <ThemeProvider theme={themeMain}>
+        <h1>Hello CodeSandbox</h1>
+
+        <Button
+          onClick={handleCarouselOpen()}
+          style={{
+            backgroundColor: "blue",
+          }}
+        >
+          View Image
+        </Button>
+
+        {cCarousel === true && (
+          <CCarousel
+            cOpen={cCarousel}
+            cHeader={"Material Images"}
+            cProductData={productData}
+          />
+        )}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        {/* <Button onClick={handleOpen}>Show backdrop</Button>
+        <CBackDrop cOpen={cOpen1} cHandleClose={handleClose} /> */}
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <CButtonGroup />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CGrid cGridData={gridData} cHeaderData={gridHeadData} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        {/* 
       <CarouselEffect />*/}
-      <CFilterGroup
-        cHeader="Filter Serach Header"
-        cData={filterData1}
-        cSingle={false}
-      />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCarousel cProduct={productData} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-
-      <CButton
-        cText="Alert Message 1"
-        cTooltipText="Default Button"
-        cOnClick={() => handleAlert("Alert Message 1", "success")}
-      />
-      <CButton
-        cText="Alert Message 2"
-        cTooltipText="Default Button"
-        cOnClick={() => handleAlert("Alert Message 2", "error")}
-      />
-      {cMessage !== undefined && (
-        <CToast
-          cMessage={cMessage}
-          cOpen={cOpen}
-          cType={cType}
-          cHandleAlertClose={handleAlertClose}
+        <CFilterGroup
+          cHeader="Filter Serach Header"
+          cData={filterData1}
+          cSingle={false}
         />
-      )}
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CDateTimePicker />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        {/* <CCarousel cProduct={productData} /> */}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CChooseFile cFileType="IMG" />
-      <CAvatar />
+        <CButton
+          cText="Alert Message 1"
+          cTooltipText="Default Button"
+          cOnClick={() => handleAlert("Alert Message 1", "success")}
+        />
+        <CButton
+          cText="Alert Message 2"
+          cTooltipText="Default Button"
+          cOnClick={() => handleAlert("Alert Message 2", "error")}
+        />
+        {cMessage !== undefined && (
+          <CToast
+            cMessage={cMessage}
+            cOpen={cOpen}
+            cType={cType}
+            cHandleAlertClose={handleAlertClose}
+          />
+        )}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CDateTimePicker />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CImportant />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CChooseFile cFileType="IMG" />
 
-      <CButton
-        cText="This is Conas Custom Default Button with text only"
-        cTooltipText="Default Button"
-        cOnClick={handleClick}
-      />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CButton
-        cText="This is Conas Custom Disabled Button with text only"
-        cDisabled={true}
-        cTooltipText="Disabled Button"
-        cOnClick={handleClick}
-      />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CButton
-        cSrcSimple={<CloseIcon />}
-        cTooltipText="Link Button"
-        cOnClick={handleClick}
-        cLink={"https://mui.com/material-ui/react-floating-action-button/"}
-      />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CButton
-        cSrc={<EditIcon />}
-        cTooltipText="Image  Button"
-        cOnClick={handleClick}
-      />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CButton
-        cSrc={<EditIcon />}
-        cDisabled={true}
-        cTooltipText="Image Disabled Button"
-        cOnClick={handleClick}
-      />
+        {/* <CAvatar /> */}
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CInput cHintText="This is Default Input Text" />
+        {/* <CImportant /> */}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CButton
+          cText="This is Conas Custom Default Button with text only"
+          cTooltipText="Default Button"
+          cOnClick={handleClick}
+        />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CButton
+          cText="This is Conas Custom Disabled Button with text only"
+          cDisabled={true}
+          cTooltipText="Disabled Button"
+          cOnClick={handleClick}
+        />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CInput cDisabled={true} cHintText="This is Disabled Input Text" />
+        <CButton
+          cSrcSimple={<CloseIcon />}
+          cTooltipText="Link Button"
+          cOnClick={handleClick}
+          cLink={"https://mui.com/material-ui/react-floating-action-button/"}
+        />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CButton
+          cSrc={<EditIcon />}
+          cTooltipText="Image  Button"
+          cOnClick={handleClick}
+        />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CButton
+          cSrc={<EditIcon />}
+          cDisabled={true}
+          cTooltipText="Image Disabled Button"
+          cOnClick={handleClick}
+        />
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CInput
-        cHintText="This is Error Input Text"
-        cErrorMsg={errorData[error]}
-      />
-      <br></br>
-      <br></br>
-      <Button variant="contained" onClick={handleToggle}>
-        Toggle Error
-      </Button>
+        <CInput cHintText="This is Default Input Text" />
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CInput cHintText="This is Numeric Input Text" cType={"number"} />
+        <CInput cDisabled={true} cHintText="This is Disabled Input Text" />
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CInput cHintText="This is Text Area" cRows={10} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CInput cHintText="This is Search Input Text" cType={"search"} />
+        <CInput
+          cHintText="This is Error Input Text"
+          cErrorMsg={errorData[error]}
+        />
+        <br></br>
+        <br></br>
+        <Button variant="contained" onClick={handleToggle}>
+          Toggle Error
+        </Button>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CCheckButton cLabel="This is check button default" />
+        <CInput cHintText="This is Numeric Input Text" cType={"number"} />
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CCheckButton cLabel="This is check button disabled" cDisabled={true} />
+        <CInput cHintText="This is Text Area" cRows={10} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CInput cHintText="This is Search Input Text" cType={"search"} />
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CCheckButton cLabel="This is radio button default" cSingle={true} />
+        <CCheckButton cLabel="This is check button default" />
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CCheckButton
-        cLabel="This is radio button disabled"
-        cSingle={true}
-        cDisabled={true}
-      />
+        <CCheckButton cLabel="This is check button disabled" cDisabled={true} />
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCheckButton />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <CCheckButton cLabel="This is radio button default" cSingle={true} />
 
-      <CDropDown
-        cHintText="DropDown Heading"
-        cData={data}
-        cErrorMsg={errorData[error]}
-      />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <br></br>
+        <CCheckButton
+          cLabel="This is radio button disabled"
+          cSingle={true}
+          cDisabled={true}
+        />
 
-      <Button variant="contained" onClick={handleToggle}>
-        Toggle Error
-      </Button>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CCheckButton />
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      <CText cVariant="header_card" cText="Hello Header" />
-      <CText cVariant="title_card" cText="Hello Title" />
-      <CText cText="Hello Other" />
+        <CDropDown
+          cHintText="DropDown Heading"
+          cData={data}
+          cErrorMsg={errorData[error]}
+        />
 
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCard cData={cardData1} cHeader="Header is here" />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCard cData={cardData1} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCard cData={cardData2} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCard cData={cardData3} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <CCard cTabdata={tabData} />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      {/* <VG>
+        <br></br>
+
+        <Button variant="contained" onClick={handleToggle}>
+          Toggle Error
+        </Button>
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <CText cVariant="header_card" cText="Hello Header" />
+        <CText cVariant="title_card" cText="Hello Title" />
+        <CText cText="Hello Other" />
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CCard cData={cardData1} cHeader="Header is here" />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CCard cData={cardData1} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CCard cData={cardData2} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CCard cData={cardData3} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <CCard cTabdata={tabData} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        {/* <VG>
         <CButton
           cText="Submit"
           cTooltipText="Default Button"
@@ -569,18 +623,19 @@ export default function Sample() {
           cOnClick={handleClick}
         />
       </VG> */}
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
-      {/* <CUI /> */}
-      {/* <Homepage /> */}
-      <Extra />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+        {/* <CUI /> */}
+        {/* <Homepage /> */}
+        {/* <Extra /> */}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+      </ThemeProvider>
     </div>
   );
 }

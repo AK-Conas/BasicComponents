@@ -17,8 +17,8 @@ const themeMain = createTheme({
 export default function App() {
   return (
     <ThemeProvider theme={themeMain}>
-      {/* <Sample /> */}
-      <Tariff />
+      <Sample />
+      {/* <Tariff /> */}
       {/* <TestHere /> */}
     </ThemeProvider>
   );

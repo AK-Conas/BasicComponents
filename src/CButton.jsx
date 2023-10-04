@@ -54,7 +54,7 @@ const CButton = ({ cText, cSrc, cTooltipText, cDisabled, cOnClick, cLink }) => {
             onClick={handleClick}
             color="primary"
             variant="contained"
-            style={buttonStyle}
+            sx={buttonStyle}
           >
             {cText}
           </Button>

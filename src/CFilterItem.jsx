@@ -39,7 +39,7 @@ const CFilterItem = ({
           <Typography
             variant={cVariant}
             color={tColor}
-            style={{ display: "flex", justifyContent: "space-between" }}
+            sx={{ display: "flex", justifyContent: "space-between" }}
           >
             {cHeader}
             {cShowDelete && (
@@ -48,7 +48,7 @@ const CFilterItem = ({
                   aria-label={resetTooltipText}
                   onClick={handleResetClick}
                 >
-                  <DeleteForeverIcon style={{ color: tColor }} />
+                  <DeleteForeverIcon sx={{ color: tColor }} />
                 </IconButton>
               </Tooltip>
             )}

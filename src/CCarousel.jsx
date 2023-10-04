@@ -41,7 +41,7 @@ const CCarousel = ({ cOpen, cHeader, cProductData }) => {
       </DialogTitle>
       <DialogContent
         sx={{
-          width: "90em",
+          maxWidth: "90em",
           height: "90em",
           display: "flex",
           alignItems: "center",

@@ -2,6 +2,7 @@ import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Sample from "./Sample";
 import Tariff from "./tariff/tariff";
+import HistoricalJobs from "./dcat/HistoricalJobso";
 // import TestHere from "./TestHere";
 
 const themeMain = createTheme({
@@ -17,9 +18,10 @@ const themeMain = createTheme({
 export default function App() {
   return (
     <ThemeProvider theme={themeMain}>
-      <Sample />
+      {/* <Sample /> */}
       {/* <Tariff /> */}
       {/* <TestHere /> */}
+      <HistoricalJobs />
     </ThemeProvider>
   );
 }

@@ -7,23 +7,20 @@ import {
   Select,
 } from "@mui/material";
 
-const CDropDown = ({ cHintText, cData, cErrorMsg }) => {
-  const [values, setValues] = React.useState("");
+const CDropDown = ({ cHelperText, cData, cErrorMsg, cOnChange }) => {
+  const [selectedValue, setSelectedValue] = React.useState("");
 
   const handleChange = (event) => {
-    setValues(event.target.value);
+    let value = event.target.value;
+    setSelectedValue(value);
+    cOnChange(value);
   };
 
-  // Create an array of key-value pairs from the object
   const keyValuePairs = Object.entries(cData);
   return (
-    <FormControl
-      sx={{ minWidth: 300 }}
-      error={cErrorMsg !== undefined && cErrorMsg !== ""}
-      fullWidth
-    >
-      <InputLabel>{cHintText}</InputLabel>
-      <Select value={values} label={cHintText} onChange={handleChange}>
+    <FormControl error={cErrorMsg !== undefined && cErrorMsg !== ""} fullWidth>
+      <InputLabel>{cHelperText}</InputLabel>
+      <Select value={selectedValue} label={cHelperText} onChange={handleChange}>
         {keyValuePairs.map(([key, value]) => (
           <MenuItem value={key}>{value}</MenuItem>
         ))}

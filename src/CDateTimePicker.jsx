@@ -1,24 +1,26 @@
 import React, { useState } from "react";
+import CInput from "./CInput";
 
-const CDateTimePicker = ({ cTooltipText }) => {
+const CDateTimePicker = ({
+  cHelperText,
+  cTooltipText,
+  cDisabled,
+  cOnChange,
+}) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const handleDateChange = (e) => {
     setSelectedDate(new Date(e.target.value));
+    cChange();
   };
 
   return (
-    <input
-      aria-label={cTooltipText}
-      type="datetime-local"
-      onChange={handleDateChange}
-      style={{
-        fontSize: "1em",
-        padding: "1em",
-        borderRadius: "0.2em",
-        fontFamily: "Sans-serif",
-        border: "1px solid #cccccc",
-      }}
+    <CInput
+      cTooltipText={cTooltipText}
+      cDisabled={cDisabled}
+      cHelperText={cHelperText}
+      cType={"date"}
+      cOnChange={handleDateChange}
     />
   );
 };

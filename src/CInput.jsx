@@ -27,7 +27,7 @@ const CInput = ({
   cErrorMsg,
   cType,
   cRows,
-  cChange,
+  cOnChange,
   cinputProps,
   cInputProps,
 }) => {
@@ -46,7 +46,7 @@ const CInput = ({
       multiline={cRows > 1 ? true : false}
       inputProps={cinputProps}
       InputProps={cInputProps}
-      onChange={cChange}
+      onChange={cOnChange}
       rows={cRows === undefined ? 10 : cRows}
       fullWidth
     />

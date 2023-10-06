@@ -9,8 +9,16 @@ const CText = ({ cVariant, cText }) => {
     tColor = "white";
     cVariant = "h6";
     return (
-      <Box bgcolor="secondary.main" p={2}>
-        <Typography variant={cVariant} color={tColor}>
+      <Box
+        bgcolor="secondary.main"
+        p={2}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Typography variant={cVariant} color={tColor} fontWeight="bold">
           {cText}
         </Typography>
       </Box>
@@ -18,6 +26,8 @@ const CText = ({ cVariant, cText }) => {
   } else if (cVariant === "title_card") {
     tColor = "secondary";
     cVariant = "subtitle1";
+  } else if (cVariant === "heading_section") {
+    cVariant = "h6";
   }
   return (
     <Typography variant={cVariant} color={tColor}>

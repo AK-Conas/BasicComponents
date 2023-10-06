@@ -29,7 +29,7 @@ const CChooseFile = ({ cFileType, cTooltipText, cDisabled, cHelperText }) => {
       cinputProps={{
         accept: fileType,
       }}
-      cChange={handleFileChange}
+      cOnChange={handleFileChange}
     />
   );
 };

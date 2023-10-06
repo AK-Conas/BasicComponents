@@ -1,13 +1,10 @@
 import * as React from "react";
 import Stack from "@mui/material/Stack";
-import CButton from "./CButton";
 
-const CButtonGroup = ({}) => {
+const CButtonGroup = ({ children }) => {
   return (
-    <Stack direction="row" spacing={2}>
-      <CButton cText="OneSeven" />
-      <CButton cText="TwoTwo" />
-      <CButton cText="Three" />
+    <Stack direction="row" spacing={children.length}>
+      {children}
     </Stack>
   );
 };

@@ -33,7 +33,7 @@ const CGrid = ({ cHeaderData, cGridData, CTooltipText }) => {
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
       <TableContainer sx={{ maxHeight: 440 }}>
-        <Table sx={{ minWidth: 650 }} aria-label={CTooltipText} stickyHeader>
+        <Table fullWidth aria-label={CTooltipText} stickyHeader>
           <TableHead>
             <TableRow>
               {cHeaderData.map((row, index) => (
@@ -42,25 +42,38 @@ const CGrid = ({ cHeaderData, cGridData, CTooltipText }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {cGridData
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((gridRow, index) => (
-                <TableRow
-                  key={index}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            {cGridData.length > 0 ? (
+              cGridData
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((gridRow, index) => (
+                  <TableRow
+                    key={index}
+                    sx={{
+                      "&:last-child td, &:last-child th": { border: 0 },
+                    }}
+                  >
+                    {Object.values(gridRow).map((cellData, index) => (
+                      <TableCell component="th" scope="row">
+                        {cellData}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+            ) : (
+              <TableRow>
+                <TableCell
+                  colSpan={cHeaderData.length}
+                  sx={{ textAlign: "center" }}
                 >
-                  {gridRow.map((rowData, index) => (
-                    <TableCell component="th" scope="row">
-                      {rowData.value}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
+                  No data found
+                </TableCell>
+              </TableRow>
+            )}
           </TableBody>
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
+        rowsPerPageOptions={[5, 10, 25]}
         component="div"
         count={cGridData.length}
         rowsPerPage={rowsPerPage}

@@ -30,6 +30,7 @@ const CInput = ({
   cOnChange,
   cinputProps,
   cInputProps,
+  cDropDown,
 }) => {
   if (cHintText === undefined) {
     cHintText = "";
@@ -49,6 +50,7 @@ const CInput = ({
       onChange={cOnChange}
       rows={cRows === undefined ? 10 : cRows}
       fullWidth
+      {...cDropDown}
     />
   );
 };

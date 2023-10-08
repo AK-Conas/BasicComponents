@@ -28,40 +28,33 @@ const CButton = ({ cText, cSrc, cTooltipText, cDisabled, cOnClick, cLink }) => {
     }
   };
   //span is added in order to show tooltip on disabled element
-  if (cSrc !== undefined) {
-    return (
-      <Tooltip title={cTooltipText} arrow>
-        <span>
-          <Fab
-            aria-label={cTooltipText}
-            disabled={cDisabled}
-            onClick={handleClick}
-            color="primary"
-            variant="contained"
-          >
-            {cSrc}
-          </Fab>
-        </span>
-      </Tooltip>
-    );
-  } else if (cText !== undefined) {
-    return (
-      <Tooltip title={cTooltipText} arrow>
-        <span>
+  return (
+    <Tooltip title={cTooltipText} arrow>
+      <span>
+        {(cText !== undefined && (
           <Button
             aria-label={cTooltipText}
             disabled={cDisabled}
             onClick={handleClick}
             color="primary"
             variant="contained"
-            sx={buttonStyle}
           >
             {cText}
           </Button>
-        </span>
-      </Tooltip>
-    );
-  }
+        )) ||
+          (cSrc !== undefined && (
+            <IconButton
+              aria-label={cTooltipText}
+              disabled={cDisabled}
+              onClick={handleClick}
+              color="primary"
+            >
+              {cSrc}
+            </IconButton>
+          ))}
+      </span>
+    </Tooltip>
+  );
 };
 
 export default CButton;

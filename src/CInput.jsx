@@ -41,7 +41,7 @@ const CInput = ({
       label={cHintText}
       color="primary"
       variant={cVariant === undefined ? "outlined" : cVariant}
-      error={cErrorMsg === undefined ? "" : cErrorMsg}
+      error={cErrorMsg === undefined ? null : cErrorMsg}
       type={cType === undefined ? "text" : cType}
       helperText={cHelperText === undefined ? " " : cHelperText}
       multiline={cRows > 1 ? true : false}

@@ -51,6 +51,7 @@ const CInput = ({
       rows={cRows === undefined ? 10 : cRows}
       fullWidth
       {...cDropDown}
+      size="small"
     />
   );
 };

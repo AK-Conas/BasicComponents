@@ -16,6 +16,7 @@ const CText = ({ cVariant, cText }) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          width: "100%",
         }}
       >
         <Typography variant={cVariant} color={tColor} fontWeight="bold">

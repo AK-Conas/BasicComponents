@@ -23,6 +23,7 @@ const CDropDown = ({ cHelperText, cData, cErrorMsg, cOnChange }) => {
           cErrorMsg={cErrorMsg}
         />
       )}
+      fullWidth
     />
   );
 };
